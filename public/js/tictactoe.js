@@ -17,7 +17,7 @@ socket.on('changeTurn', (role) => {
       + (playerTurn ? '' : 'NOT') + ' your turn';
 });
 
-socket.on('boardPlace', (board) => {
+socket.on('updateBoard', (board) => {
   for (let y = 0; y < 3; y++) {
     for (let x = 0; x < 3; x++) {
       if (board[y][x]) {

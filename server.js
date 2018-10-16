@@ -18,13 +18,14 @@ io.on('connection', (socket) => {
   io.emit('changeTurn', game.changeTurn());
 
   socket.on('playerMove', (role, x, y) => {
-    io.emit('boardPlace', game.place(role, x, y));
+    io.emit('updateBoard', game.place(role, x, y));
     game.toggleTurn();
     io.emit('changeTurn', game.changeTurn());
   });
 
   socket.on('disconnect', () => {
     game.unregister(socket.id);
+    io.emit('updateBoard', game.reset());
     io.emit('changeTurn', game.changeTurn());
   });
 });

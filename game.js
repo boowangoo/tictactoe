@@ -66,3 +66,11 @@ exports.place = (role, x, y) => {
   }
   return gameboard;
 }
+
+exports.reset = () => {
+  for (let y = 0; y < 3; y++) {
+    for (let x = 0; x < 3; x++) {
+      gameboard[y][x] = null;
+    }
+  }
+}
